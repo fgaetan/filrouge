@@ -1,4 +1,4 @@
-$(document).on("click", "#valider", function (e) {
+$(document).on("click", "#signin", function (e) {
       e.preventDefault();
       let regexListe = {
             nom: /^[\p{L}\s]{2,}$/u,
@@ -8,12 +8,9 @@ $(document).on("click", "#valider", function (e) {
             code_post: /^(([0-8][0-9])|(9[0-5]))[0-9]{3}$/,
             tel: /^[\d]{10,}$/,
       };
-
       $("small").text("");
       erreur = false;
-
       let formElements = $("form")[0];
-
       for (let i = 0; i < formElements.length - 2; i++) {
             //////////////////////////////////////////////////////      BOUTONS RADIO
             if ($(formElements[i]).attr("type") === "radio") {
@@ -39,9 +36,7 @@ $(document).on("click", "#valider", function (e) {
             else if ($(formElements[i]).attr("type") === "password") {
                   $("#pass").removeClass("erreurInput");
                   $("#pass2").removeClass("erreurInput");
-
                   const pattern = regexListe.pass;
-
                   if (pattern.test(formElements[i].value) === false) {
                         erreur = true;
                         $("#pass").addClass("erreurInput");
@@ -71,7 +66,6 @@ $(document).on("click", "#valider", function (e) {
             ) {
                   $(formElements[i]).removeClass("erreurInput");
                   //$(formElements[i]).next().html("");
-
                   if (formElements[i].value === "") {
                         erreur = true;
                         $(formElements[i]).addClass("erreurInput");
@@ -88,10 +82,8 @@ $(document).on("click", "#valider", function (e) {
             else {
                   $(formElements[i]).removeClass("erreurInput");
                   //	$(formElements[i]).next().html("");
-
                   const type = $(formElements[i]).attr("data-type");
                   const pattern = regexListe[type];
-
                   if (pattern.test(formElements[i].value) === false) {
                         erreur = true;
                         $(formElements[i]).addClass("erreurInput");

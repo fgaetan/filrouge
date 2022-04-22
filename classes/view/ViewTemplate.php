@@ -9,7 +9,7 @@ class ViewTemplate
             <?= $message ?> <br />
             <?php
             if ($lien) {  ?>
-                Cliquez <a href="<?= $lien ?>" class="alert-link px-2"> ici </a> pour continuer la navigation
+                Cliquez <a href="<?= $lien ?>" class="alert-link px-2"> ici </a> pour continuer la navigation.
             <?php
             }
             ?>
@@ -22,7 +22,6 @@ class ViewTemplate
     ?>
         <!DOCTYPE html>
         <html lang="fr">
-
         <head>
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,7 +31,6 @@ class ViewTemplate
             <link rel="stylesheet" href="../../assets/css/style.css">
             <title><?php $title ?></title>
         </head>
-
         <body>
             <?php
         }
@@ -90,6 +88,7 @@ class ViewTemplate
         ?>
             <script src="../../assets/js/jquery.min.js"></script>
             <script src="../../assets/js/main.js"></script>
+            <script src="../../assets/js/formvalid.js"></script>
             <script src="../../assets/js/bootstrap.bundle.min.js"></script>
             <script src="../../assets/js/all.min.js"></script>
         </body>

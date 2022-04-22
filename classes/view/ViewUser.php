@@ -12,40 +12,40 @@ class ViewUser
         <div class="container jumbotron m-auto px-5 text-center">
             <form class="m-auto" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>">
                 <div class="form-group">
-                    <input class="form-control" type="text" name="nom" placeholder="Nom" aria-describedby="nom" data-type="nom" data-message="Erreur">
-                    <small id="nom"></small>
+                    <input id="nom" class="form-control" type="text" name="nom" placeholder="Nom" aria-describedby="nom" data-type="nom" data-message="Erreur">
+                    <small id="nom" class="form-text text-muted"></small>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" name="prenom" placeholder="Prénom" aria-describedby="prenom" data-type="prenom" data-message="Erreur">
-                    <small id="prenom"></small>
+                    <input id="prenom" class="form-control" type="text" name="prenom" placeholder="Prénom" aria-describedby="prenom" data-type="prenom" data-message="Erreur">
+                    <small id="prenom" class="form-text text-muted"></small>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="mail" name="mail" placeholder="Adresse mail" required="required" aria-activedescendant="mail" data-type="mail" data-message="Erreur">
-                    <small id="mail"></small>
+                    <input id="mail" class="form-control" type="mail" name="mail" placeholder="Adresse mail" required="required" aria-activedescendant="mail" data-type="mail" data-message="Erreur">
+                    <small id="mail" class="form-text text-muted"></small>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="password" name="pass" placeholder="Mot de passe" required="required" aria-describedby="pass" data-type="pass" data-message="Erreur">
-                    <small id="pass"></small>
+                    <input id="pass" class="form-control" type="password" name="pass" placeholder="Mot de passe" required="required" aria-describedby="pass" data-type="pass" data-message="Erreur">
+                    <small id="pass" class="form-text text-muted"></small>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="password" name="pass2" placeholder="Confirmation" required="required" aria-describedby="pass2" data-type="pass" data-message="Erreur">
-                    <small id="pass2"></small>
+                    <input id="pass2" class="form-control" type="password" name="pass2" placeholder="Confirmation" required="required" aria-describedby="pass2" data-type="pass" data-message="Erreur">
+                    <small id="pass2" class="form-text text-muted"></small>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" name="adresse" placeholder="Adresse" aria-describedby="adresse" data-type="code_post" data-message="Erreur">
-                    <small id="adresse"></small>
+                    <input id="adresse" class="form-control" type="text" name="adresse" placeholder="Adresse" aria-describedby="adresse" data-type="adresse" data-message="Erreur">
+                    <small id="adresse" class="form-text text-muted"></small>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="number" name="code_post" placeholder="Code Postal" aria-describedby="code_post" data-type="code_post" data-message="Erreur">
-                    <small id="code_post"></small>
+                    <input id="code_post" class="form-control" type="number" name="code_post" placeholder="Code Postal" aria-describedby="code_post" data-type="code_post" data-message="Erreur">
+                    <small id="code_post" class="form-text text-muted"></small>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" name="ville" placeholder="Ville" aria-describedby="ville" data-type="nom" data-message="Erreur">
-                    <small id="ville"></small>
+                    <input id="ville" class="form-control" type="text" name="ville" placeholder="Ville" aria-describedby="ville" data-type="nom" data-message="Erreur">
+                    <small id="ville" class="form-text text-muted"></small>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="tel" name="tel" placeholder="Téléphone" aria-describedby="tel" data-type="tel" data-message="Erreur">
-                    <small id="tel"></small>
+                    <input id="tel" class="form-control" type="tel" name="tel" placeholder="Téléphone" aria-describedby="tel" data-type="tel" data-message="Erreur">
+                    <small id="tel" class="form-text text-muted"></small>
                 </div>
                 <button class="btn btn-info mr-auto" type="submit" name="signin" id="signin">S'inscrire</button>
                 <button class="btn btn-danger ml-auto" type="reset" name="reset" id="reset">Réinitialiser</button>

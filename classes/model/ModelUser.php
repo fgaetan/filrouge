@@ -27,11 +27,11 @@ class ModelUser
         $this->token = $token;
     }
     // /////////////////////////////////////////////////////    INSCRIPTION
-    public function signin($nom, $prenom, $mail, $pass, $adresse, $ville, $code_post, $tel, $token)
+    public function signin($nom, $prenom, $mail, $pass, $adresse, $ville, $code_post, $tel)
     {
         $idcon = connexion();
         $requete = $idcon->prepare("
-      INSERT INTO client VALUES (null, :nom, :prenom, :mail, :pass, :adresse, :ville, :code_post, :tel, :token)
+      INSERT INTO client VALUES (null, :nom, :prenom, :mail, :pass, :adresse, :ville, :code_post, :tel, null)
     ");
         return $requete->execute([
             ':nom' => $nom,
@@ -42,7 +42,6 @@ class ModelUser
             ':ville' => $ville,
             ':code_post' => $code_post,
             ':tel' => $tel,
-            ':token' => $token
         ]);
     }
     // /////////////////////////////////////////////////////    CONNEXION

@@ -8,8 +8,6 @@ ViewTemplate::head('Inscription');
 ViewTemplate::header();
 
 if (isset($_POST['signin'])) {
-    ?>
-    <script src="../../assets/js/formvalid.js"></script><?php
     $pass = password_hash($_POST['pass'], PASSWORD_BCRYPT);
     $user = new ModelUser();
     if ($user->signin(
@@ -20,8 +18,7 @@ if (isset($_POST['signin'])) {
         strtoupper($_POST['adresse']),
         strtoupper($_POST['ville']),
         $_POST['code_post'],
-        $_POST['tel'],
-        uniqid()
+        $_POST['tel']
     )) {
         header('Location: signup.php');
     }
@@ -31,19 +28,3 @@ ViewUser::userSignin();
 
 ViewTemplate::footer();
 ViewTemplate::end();
-// if (isset($_POST['signin'])) {
-//     $donnees = [
-//       $_POST['nom'],
-//       $_POST['prenom'],
-//       $_POST['mail'],
-//       $_POST['pass'],
-//       $_POST['adresse'],
-//       $_POST['ville'],
-//       $_POST['code_post'],
-//       $_POST['tel']
-//     ];
-//     $types = ["nom", "tel"];
-//     $data = Utils::valider($donnees, $types);
-//     if ($data) {
-//     }
-//   } else {  }
