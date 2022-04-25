@@ -13,7 +13,7 @@ class ModelUser
     private $tel;
     private $token;
 
-    public function __construct($id = null, $nom = null, $prenom = null, $mail = null, $pass = null, $adresse = null, $ville = null, $code_post = null, $tel = null, $token = null)
+    public function __construct($id =null, $nom =null, $prenom =null, $mail =null, $pass =null, $adresse =null, $ville =null, $code_post =null, $tel =null, $token =null)
     {
         $this->id = $id;
         $this->nom = $nom;

@@ -45,7 +45,8 @@ class ViewTemplate
                     <div class="logo col-md-3">
                         <a class="btn btn-dark" href="/public/controller/index.php">Accueil</a>
                     </div>
-                    <div class="col-md-6">
+                    <div class="title col-md-6 text-center text-dark">
+                        <h3>DASHBOARD ADMINISTRATEUR</h3>
                     </div>
                     <div class="actions col-md-3 text-right">
                         <a class="btn btn-dark" href="#####">Dashboard</a>
@@ -56,11 +57,11 @@ class ViewTemplate
         <?php
     }
     // /////////////////////////////////////////////////////    LISTE DES GESTIONNAIRES
-    public static function managers($contenu)
+    public static function managers($inclusion, $function, $parameter)
     {
         ?>
             <div class="container-fluid">
-                <div class="row h-100">
+                <div class="row min-vh-100">
                     <nav class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
                         <div class="sidebar-sticky bg-dark text-dark">
                             <ul class="nav flex-column mt-5">
@@ -115,8 +116,9 @@ class ViewTemplate
                             </ul>
                         </div>
                     </nav>
-                    <div class="col-md-9 col-lg-10 bg-secondary">
-                        <?= $contenu ?>
+                    <div class="col-10 p-0">
+                    <?php if(false){
+                        } else { ViewAdmin::$function($parameter);} ?>
                     </div>
                 </div>
             </div>
