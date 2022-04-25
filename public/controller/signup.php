@@ -29,7 +29,7 @@ if (isset($_POST['signup'])) {
     $_SESSION['prenom'] = $adminData['prenom'];
     $_SESSION['mail'] = $adminData['mail'];
     $_SESSION['role'] = $adminData['role'];
-    header('Location: ./admin/controller/admin-index.php  ');
+    header('Location: ../../admin/controller/admin-index.php');
   }
   ViewTemplate::alert('danger', "Désolé, mais nous n'arrivons pas à vous connecter. Veuillez réessayer.");
 }

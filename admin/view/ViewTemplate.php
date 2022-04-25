@@ -5,7 +5,7 @@ class ViewTemplate
     public static function alert($type, $message, $lien = null)
     {
 ?>
-        <div class="container alert  alert-<?= $type ?>" role="alert">
+        <div class="mt-5 p-5 container alert  alert-<?= $type ?>" role="alert">
             <?= $message ?> <br />
             <?php
             if ($lien) {  ?>
@@ -43,21 +43,20 @@ class ViewTemplate
             <header>
                 <div class="row container-fluid bg-info text-light p-3 mx-auto">
                     <div class="logo col-md-3">
-                        <a class="btn btn-dark" href="/public/controller/index.php">Accueil</a>
+                        <a class="btn btn-dark" href="admin-index.php">Accueil</a>
                     </div>
                     <div class="title col-md-6 text-center text-dark">
                         <h3>DASHBOARD ADMINISTRATEUR</h3>
                     </div>
                     <div class="actions col-md-3 text-right">
-                        <a class="btn btn-dark" href="#####">Dashboard</a>
-                        <a class="btn btn-danger" href="/public/controller/user-disconnect.php">Déconnexion</a>
+                        <a class="btn btn-danger" href="admin-disconnect.php">Déconnexion</a>
                     </div>
                 </div>
             </header>
         <?php
     }
     // /////////////////////////////////////////////////////    LISTE DES GESTIONNAIRES
-    public static function managers($inclusion, $function, $parameter)
+    public static function managers($view, $function, $parameter)
     {
         ?>
             <div class="container-fluid">
@@ -117,8 +116,7 @@ class ViewTemplate
                         </div>
                     </nav>
                     <div class="col-10 p-0">
-                    <?php if(false){
-                        } else { ViewAdmin::$function($parameter);} ?>
+                    <?php $view::$function($parameter) ?>
                     </div>
                 </div>
             </div>

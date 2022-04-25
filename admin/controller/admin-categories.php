@@ -17,17 +17,19 @@ for ($i = 0; $i < count($categories); $i++) {
                     <tr>
                         <td>' . $id . '</td>
                         <td>' . $nom . '</td>
-                        <td class="text-right"><a class="btn btn-info" href="">Modifier</a>
-                            <a class="btn btn-danger" href="">Supprimer</a>
+                        <td class="text-right">
+                            <a class="btn btn-warning" href="categories-page.php?id='. $id .'">+ d\'infos</a>
+                            <a class="btn btn-info" href="categories-update.php?id='. $id .'">Modifier</a>
+                            <a class="btn btn-danger" href="categories-delete.php?id='. $id .'">Supprimer</a>
                         </td>
                     </tr>
             ';
     $groupedeLignes .= $ligne;
 }
 if ($categories) {
-    ViewTemplate::managers(true, 'categoriesManager', $groupedeLignes);
+    ViewTemplate::managers('ViewAdmin', 'categoriesManager', $groupedeLignes);
 } else { //sinon une erreur
-    ViewTemplate::managers(false, '', '');
+    ViewTemplate::managers('ViewTemplate', 'alert', `'danger', 'Aucune catégorie à afficher'`);
 }
 
 ViewTemplate::footer();

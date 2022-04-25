@@ -6,9 +6,7 @@ require_once '../model/ModelAdmin.php';
 ViewTemplate::head('Dashboard administrateur');
 ViewTemplate::header();
 
-$contenu = ViewAdmin::dashboard();
-
-ViewTemplate::managers($contenu);
+ViewTemplate::managers('ViewAdmin', 'dashboard', null);
 
 ViewTemplate::footer();
 ViewTemplate::end(false);
