@@ -1,5 +1,4 @@
-$(document).on("click", "#signin", function (e) {
-      e.preventDefault();
+$(document).on("submit", "form", function (e) {
       let regexListe = {
             nom: /^[\p{L}\s]{2,}$/u,
             mail: /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/,
@@ -97,7 +96,7 @@ $(document).on("click", "#signin", function (e) {
                   }
             }
       }
-      if (!erreur) {
-            $("form").submit();
+      if (erreur) {
+            e.preventDefault();
       }
 });
