@@ -2,6 +2,7 @@
 session_start();
 require_once '../view/ViewTemplate.php';
 require_once '../view/ViewAdmin.php';
+require_once '../view/ViewCategories.php';
 require_once '../model/ModelAdmin.php';
 require_once '../model/ModelCategories.php';
 ViewTemplate::head('Catégories');
@@ -27,9 +28,9 @@ for ($i = 0; $i < count($categories); $i++) {
     $groupedeLignes .= $ligne;
 }
 if ($categories) {
-    ViewTemplate::managers('ViewAdmin', 'categoriesManager', $groupedeLignes);
+    ViewTemplate::managers('ViewCategories', 'categoriesManager', $groupedeLignes);
 } else { //sinon une erreur
-    ViewTemplate::managers('ViewTemplate', 'alert', `'danger', 'Aucune catégorie à afficher'`);
+    ViewTemplate::alert("danger", "Nous ne pouvons pas afficher votre liste actuellement.", "admin-categories.php");
 }
 
 ViewTemplate::footer();

@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once '../view/ViewTemplate.php';
-require_once '../view/ViewAdmin.php';
+require_once '../view/ViewCategories.php';
 require_once '../model/ModelAdmin.php';
 require_once '../model/ModelCategories.php';
 ViewTemplate::head('Suppression de catégorie');
