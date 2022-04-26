@@ -8,7 +8,6 @@ ViewTemplate::head('Modification de catégorie');
 ViewTemplate::header();
 
 $categorie = new ModelCategories();
-
 if (isset($_GET['id'])) {
     if ($categorie->display($_GET['id'])) {
         ViewTemplate::managers('ViewCategories', 'categoriesUpdate', $_GET['id']);

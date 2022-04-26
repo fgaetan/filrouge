@@ -9,7 +9,6 @@ ViewTemplate::head('Modification du transporteur');
 ViewTemplate::header();
 
 $transporteur = new ModelDeliverer();
-
 if (isset($_GET['id'])) {
     if ($transporteur->display($_GET['id'])) {
         ViewTemplate::managers('ViewDeliverer', 'delivererUpdate', $_GET['id']);
@@ -19,12 +18,12 @@ if (isset($_GET['id'])) {
 } else {
     if (isset($_POST['id']) && $transporteur->display($_POST['id'])) {
         $extensions = ["jpg", "jpeg", "png"];
-        $upload = Utils::upload($extensions, $_FILES['logo']);
+        $upload = Utils::upload($extensions, $_FILES['logo'], 'uploads/deliverers/');
         if ($upload['uploadOk']) {
             if ($transporteur->update(
                 $_POST['id'],
                 $_POST['nom'],
-                $_FILES['logo']['name']
+                $upload['file_name']
             )) {
                 ViewTemplate::alert("success", "Les modifications ont été effectuées, retour à la liste", "admin-deliverers.php");
             }

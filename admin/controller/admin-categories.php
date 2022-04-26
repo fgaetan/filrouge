@@ -8,29 +8,29 @@ require_once '../model/ModelCategories.php';
 ViewTemplate::head('Catégories');
 ViewTemplate::header();
 
-$categorie = new ModelCategories();
-$categories = $categorie->categories(); //retourne la table avec toutes les catégories, sous forme de tableau
+$categories = new ModelCategories();
+$categorie = $categories->categories();
 $groupedeLignes = '';
-for ($i = 0; $i < count($categories); $i++) {
-    $id = $categories[$i]['id'];
-    $nom = $categories[$i]['nom'];
+for ($i = 0; $i < count($categorie); $i++) {
+    $id = $categorie[$i]['id'];
+    $nom = $categorie[$i]['nom'];
     $ligne = '
                     <tr>
                         <td>' . $id . '</td>
-                        <td>' . $nom . '</td>
+                        <td class="h5 align-middle font-weight-bold">' . $nom . '</td>
                         <td class="text-right">
-                            <a class="btn btn-warning" href="categories-page.php?id='. $id .'">+ d\'infos</a>
-                            <a class="btn btn-info" href="categories-update.php?id='. $id .'">Modifier</a>
-                            <a class="btn btn-danger" href="categories-delete.php?id='. $id .'">Supprimer</a>
+                            <a class="btn btn-warning" href="categories-page.php?id=' . $id . '">+ d\'infos</a>
+                            <a class="btn btn-info" href="categories-update.php?id=' . $id . '">Modifier</a>
+                            <a class="btn btn-danger" href="categories-delete.php?id=' . $id . '">Supprimer</a>
                         </td>
                     </tr>
             ';
     $groupedeLignes .= $ligne;
 }
-if ($categories) {
+if ($categorie) {
     ViewTemplate::managers('ViewCategories', 'categoriesManager', $groupedeLignes);
-} else { //sinon une erreur
-    ViewTemplate::alert("danger", "Nous ne pouvons pas afficher votre liste actuellement.", "admin-categories.php");
+} else {
+    ViewTemplate::alert("danger", "Nous ne pouvons pas afficher votre liste actuellement.", "admin-index.php");
 }
 
 ViewTemplate::footer();

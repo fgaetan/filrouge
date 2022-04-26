@@ -9,7 +9,7 @@ ViewTemplate::head('Transporteurs');
 ViewTemplate::header();
 
 $transporteurs = new ModelDeliverer();
-$transporteur = $transporteurs->deliverer(); //retourne la table avec toutes les catégories, sous forme de tableau
+$transporteur = $transporteurs->deliverer();
 $groupedeLignes = '';
 for ($i = 0; $i < count($transporteur); $i++) {
     $id = $transporteur[$i]['id'];
@@ -18,9 +18,9 @@ for ($i = 0; $i < count($transporteur); $i++) {
     $ligne = '
                     <tr>
                         <td>' . $id . '</td>
-                        <td>' . $nom . '</td>
-                        <td>' . $logo . '</td>
-                        <td class="text-right">
+                        <td class="h5 align-middle font-weight-bold">' . $nom . '</td>
+                        <td><img src="uploads/deliverers/' . $logo . '" width="100px" alt="logo"></td>
+                        <td class="align-middle text-right">
                             <a class="btn btn-warning" href="deliverer-page.php?id=' . $id . '">+ d\'infos</a>
                             <a class="btn btn-info" href="deliverer-update.php?id=' . $id . '">Modifier</a>
                             <a class="btn btn-danger" href="deliverer-delete.php?id=' . $id . '">Supprimer</a>
@@ -29,10 +29,10 @@ for ($i = 0; $i < count($transporteur); $i++) {
             ';
     $groupedeLignes .= $ligne;
 }
-if ($transporteurs) {
+if ($transporteur) {
     ViewTemplate::managers('ViewDeliverer', 'delivererManager', $groupedeLignes);
-} else { //sinon une erreur
-    ViewTemplate::alert("danger", "Nous ne pouvons pas afficher votre liste actuellement.", "admin-deliverers.php");
+} else {
+    ViewTemplate::alert("danger", "Nous ne pouvons pas afficher votre liste actuellement.", "admin-index.php");
 }
 
 ViewTemplate::footer();

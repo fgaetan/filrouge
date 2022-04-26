@@ -73,7 +73,7 @@ class ViewTemplate
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-light p-3" href="admin-categories.php" id="liste-contacts">
+                                    <a class="nav-link text-light p-3" href="admin-categories.php" id="categories">
                                         <h5>
                                             <i class="fas fa-list-alt"></i>
                                             Catégories
@@ -81,7 +81,7 @@ class ViewTemplate
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-light p-3" href="admin-products.php" id="liste-contacts">
+                                    <a class="nav-link text-light p-3" href="admin-products.php" id="products">
                                         <h5>
                                             <i class="fas fa-list-alt"></i>
                                             Produits
@@ -89,7 +89,7 @@ class ViewTemplate
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-light p-3" href="admin-brands.php" id="liste-contacts">
+                                    <a class="nav-link text-light p-3" href="admin-brands.php" id="brands">
                                         <h5>
                                             <i class="fas fa-list-alt"></i>
                                             Marques
@@ -97,7 +97,7 @@ class ViewTemplate
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-light p-3" href="admin-deliverers.php" id="liste-contacts">
+                                    <a class="nav-link text-light p-3" href="admin-deliverers.php" id="deliverers">
                                         <h5>
                                             <i class="fas fa-list-alt"></i>
                                             Transporteurs
@@ -105,7 +105,7 @@ class ViewTemplate
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-light p-3" href="admin-users.php" id="liste-contacts">
+                                    <a class="nav-link text-light p-3" href="admin-users.php" id="users">
                                         <h5>
                                             <i class="fas fa-list-alt"></i>
                                             Clients

@@ -1,8 +1,7 @@
 <?php
 class ViewCategories
 {
-    // /////////////////////////////////////////////////////    CATEGORIES
-    // liste des catégories
+    // /////////////////////////////////////////////////////    LISTE DES CATEGORIES
     public static function categoriesManager($groupedeLignes)
     {
     ?>

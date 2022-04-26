@@ -1,7 +1,7 @@
 <?php
 class Utils
 {
-  public static function upload($extensions, $fichier)
+  public static function upload($extensions, $fichier, $chemin)
   {
     $file_name = $fichier['name'];
     $file_size = $fichier['size'];
@@ -31,7 +31,7 @@ class Utils
     }
 
     if ($errors === "") {
-      if (move_uploaded_file($file_tmp,  "uploads/" . $file_name)) {
+      if (move_uploaded_file($file_tmp,  $chemin . $file_name)) {
         $uploadOk = true;
         return ["uploadOk" => $uploadOk, "file_name" => $file_name, "errors" => $errors];
       } else {
@@ -39,6 +39,6 @@ class Utils
       }
     }
 
-    return ["uploadOk" => false, "file_name" => "", "errors" => "Aucun fichier n'est uploadé.<br>$errors"];
+    return ["uploadOk" => false, 'file_name' => '', 'errors' => "Aucun fichier n'est uploadé.<br>$errors"];
   }
 }

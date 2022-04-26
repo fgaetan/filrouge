@@ -10,11 +10,12 @@ ViewTemplate::header();
 if (isset($_GET['id'])) {
     $transporteur = new ModelDeliverer();
     if ($transporteur->display($_GET['id'])) {
-        if ($transporteur->delete($_GET['id'])) {
-            session_destroy();
-            ViewTemplate::alert("success", "Transporteur supprimé avec succès", "admin-deliverers.php");
-        } else {
-            ViewTemplate::alert("danger", "Nous sommes désolé, mais nous avons rencontré une erreur.", "admin-deliverers.php");
+        if (unlink('uploads\/deliverers\/'.$transporteur->display($_GET['id'])['logo'])) {
+            if ($transporteur->delete($_GET['id'])) {
+                ViewTemplate::alert("success", "Transporteur supprimé avec succès", "admin-deliverers.php");
+            } else {
+                ViewTemplate::alert("danger", "Nous sommes désolé, mais nous avons rencontré une erreur.", "admin-deliverers.php");
+            }
         }
     } else {
         ViewTemplate::alert("danger", "Nous sommes désolé, mais nous avons rencontré une erreur.", "admin-deliverers.php");

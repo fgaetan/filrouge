@@ -11,7 +11,6 @@ if (isset($_GET['id'])) {
     $categorie = new ModelCategories();
     if ($categorie->display($_GET['id'])) {
         if ($categorie->delete($_GET['id'])) {
-            session_destroy();
             ViewTemplate::alert("success", "Catégorie supprimée avec succès", "admin-categories.php");
         } else {
             ViewTemplate::alert("danger", "Nous sommes désolé, mais nous avons rencontré une erreur.", "admin-categories.php");

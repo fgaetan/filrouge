@@ -10,11 +10,10 @@ ViewTemplate::header();
 
 if(isset($_POST['ajout'])) {
     $extensions = ["jpg", "jpeg", "png"];
-    $upload = Utils::upload($extensions, $_FILES['logo']);
+    $upload = Utils::upload($extensions, $_FILES['logo'], 'uploads/deliverers/');
     if($upload['uploadOk']) {
-        var_dump($_FILES['logo']);
         $transporteur = new ModelDeliverer();
-        if ($transporteur->add($_POST['nom'], $_FILES['logo']['name'])) {
+        if ($transporteur->add($_POST['nom'], $upload['file_name'])) {
             header('Location: admin-deliverers.php');
             ViewTemplate::alert('success', 'Transporteur ajouté avec succès.', 'admin-deliverers.php');
         } else { ViewTemplate::alert('danger', $upload['errors']); }
@@ -23,4 +22,3 @@ if(isset($_POST['ajout'])) {
 
 ViewTemplate::footer();
 ViewTemplate::end(false);
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////

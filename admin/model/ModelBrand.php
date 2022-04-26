@@ -1,6 +1,6 @@
 <?php
 require_once 'connexion.php';
-class ModelDeliverer
+class ModelBrand
 {
     private $id;
     private $nom;
@@ -11,36 +11,36 @@ class ModelDeliverer
         $this->nom = $nom;
         $this->logo = $logo;
     }
-    // /////////////////////////////////////////////////////    AJOUTER UN TRANSPORTEUR
+    // /////////////////////////////////////////////////////    AJOUTER UNE MARQUE
     public function add($nom, $logo)
     {
         $idcon = connexion();
         $requete = $idcon->prepare("
-      INSERT INTO transporteur VALUES (null, :nom, :logo)
+      INSERT INTO marque VALUES (null, :nom, :logo)
     ");
         return $requete->execute([
             ':nom' => $nom,
             ':logo' => $logo
         ]);
     }
-    // /////////////////////////////////////////////////////    RECUPERER UN TRANSPORTEUR
+    // /////////////////////////////////////////////////////    RECUPERER UNE MARQUE
     public function display($id)
     {
         $idcon = connexion();
         $requete = $idcon->prepare("
-        SELECT * FROM transporteur WHERE id = :id
+        SELECT * FROM marque WHERE id = :id
         ");
         $requete->execute([
             ':id' => $id
         ]);
         return $requete->fetch(PDO::FETCH_ASSOC);
     }
-    // /////////////////////////////////////////////////////    RECUPERER TOUS LES TRANSPORTEURS
-    public function deliverer()
+    // /////////////////////////////////////////////////////    RECUPERER TOUTES LES MARQUES
+    public function brand()
     {
         $idcon = connexion();
         $requete = $idcon->prepare("
-      SELECT * FROM transporteur
+      SELECT * FROM marque
     ");
         $requete->execute();
         return $requete->fetchAll(PDO::FETCH_ASSOC);
@@ -50,7 +50,7 @@ class ModelDeliverer
     {
         $idcon = connexion();
         $requete = $idcon->prepare("
-        UPDATE transporteur SET nom = :nom, logo = :logo WHERE id = :id
+        UPDATE marque SET nom = :nom, logo = :logo WHERE id = :id
       ");
         return $requete->execute([
             ':id' => $id,
@@ -59,24 +59,11 @@ class ModelDeliverer
         ]);
     }
     // /////////////////////////////////////////////////////    SUPPRESSION
-    //récupérer l'image pour la supprimer
-    public function imgDisplay($id)
-    {
-        $idcon = connexion();
-        $requete = $idcon->prepare("
-        SELECT * FROM transporteur WHERE id = :id
-        ");
-        $requete->execute([
-            ':id' => $id
-        ]);
-        return $requete->fetch(PDO::FETCH_ASSOC);
-    }
-    //supprimer tout le transporteur
     public function delete($id)
     {
         $idcon = connexion();
         $requete = $idcon->prepare("
-        DELETE FROM transporteur WHERE id= :id
+        DELETE FROM marque WHERE id= :id
       ");
         return $requete->execute([
             ':id' => $id
