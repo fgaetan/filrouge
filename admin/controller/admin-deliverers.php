@@ -21,9 +21,9 @@ for ($i = 0; $i < count($transporteur); $i++) {
                         <td>' . $nom . '</td>
                         <td>' . $logo . '</td>
                         <td class="text-right">
-                            <a class="btn btn-warning" href="deliverers-page.php?id='. $id .'">+ d\'infos</a>
-                            <a class="btn btn-info" href="deliverers-update.php?id='. $id .'">Modifier</a>
-                            <a class="btn btn-danger" href="deliverers-delete.php?id='. $id .'">Supprimer</a>
+                            <a class="btn btn-warning" href="deliverer-page.php?id=' . $id . '">+ d\'infos</a>
+                            <a class="btn btn-info" href="deliverer-update.php?id=' . $id . '">Modifier</a>
+                            <a class="btn btn-danger" href="deliverer-delete.php?id=' . $id . '">Supprimer</a>
                         </td>
                     </tr>
             ';

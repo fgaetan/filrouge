@@ -31,14 +31,13 @@ class ViewDeliverer
     ?>
         <p class="h2 text-center my-4">AJOUTER UN TRANSPORTEUR</p>
         <div class="container jumbotron m-auto text-center">
-            <form class="m-auto" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>">
+            <form class="m-auto" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" enctype="multipart/form-data">
                 <div class="form-group">
                     <input class="form-control" type="text" name="nom" placeholder="Nom du transporteur" required="required">
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" name="logo" placeholder="logo (provisoire)" required="required">
+                    <input class="btn btn-light border border-dark" type="file" name="logo" id="fileToUpload">
                 </div>
-                // AJOUTER UPLOAD !
                 <input class="btn btn-info mr-auto" type="submit" name="ajout" id="ajout" value="Ajouter">
                 <a class="btn btn-warning" href="admin-deliverers.php">Retour à la liste</a>
             </form>
@@ -53,13 +52,17 @@ class ViewDeliverer
     ?>
         <p class="h2 text-center my-4">MODIFIER LE TRANSPORTEUR</p>
         <div class="container jumbotron m-auto text-center">
-            <form class="m-auto" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>">
+            <form class="m-auto" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?= $transporteur['id'] ?>">
                 <div class="form-group">
                     <label for="nom">Choisissez ou modifiez le nouveau nom pour la catégorie</label>
-                    <input class="form-control" type="text" name="nom" value="<?= $transporteur['nom'] ?>" placeholder="Nouveau nom" required="required">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="nom" value="<?= $transporteur['nom'] ?>" placeholder="Nouveau nom" required="required">
+                    </div>
+                    <div class="form-group">
+                        <input class="btn btn-light border border-dark" type="file" name="logo" id="fileToUpload">
+                    </div>
                 </div>
-                // AJOUTER UPLOAD !
                 <input class="btn btn-info mr-auto" type="submit" name="modif" id="modif" value="Modifier">
                 <a class="btn btn-warning" href="admin-deliverers.php">Retour à la liste</a>
             </form>
@@ -78,11 +81,12 @@ class ViewDeliverer
                 <div class="h5">
                     <span class="input-group-text bg-light my-2 mx-auto"><?= $transporteur['id'] ?></span>
                     <span class="input-group-text bg-light my-2 mx-auto"><?= $transporteur['nom'] ?></span>
+                    <span class="input-group-text bg-light my-2 mx-auto"><?= $transporteur['logo'] ?></span>
                 </div>
                 <div class="text-center">
                     <a class="btn btn-warning" href="admin-deliverers.php">Retour</a>
-                    <a class="btn btn-info" href="deliverers-update.php?id=<?= $transporteur['id'] ?>">Modifier</a>
-                    <a class="btn btn-danger" href="deliverers-delete.php?id=<?= $transporteur['id'] ?>">Supprimer</a>
+                    <a class="btn btn-info" href="deliverer-update.php?id=<?= $transporteur['id'] ?>">Modifier</a>
+                    <a class="btn btn-danger" href="deliverer-delete.php?id=<?= $transporteur['id'] ?>">Supprimer</a>
                 </div>
             </div>
         </div>

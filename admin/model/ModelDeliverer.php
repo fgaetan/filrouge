@@ -50,7 +50,7 @@ class ModelDeliverer
     {
         $idcon = connexion();
         $requete = $idcon->prepare("
-        UPDATE categorie SET nom = :nom, logo = :logo WHERE id = :id
+        UPDATE transporteur SET nom = :nom, logo = :logo WHERE id = :id
       ");
         return $requete->execute([
             ':id' => $id,
