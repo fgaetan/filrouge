@@ -8,17 +8,20 @@ require_once '../model/Utils.php';
 ViewTemplate::head('Ajout de transporteur');
 ViewTemplate::header();
 
-if(isset($_POST['ajout'])) {
+if (isset($_POST['ajout'])) {
     $extensions = ["jpg", "jpeg", "png"];
     $upload = Utils::upload($extensions, $_FILES['logo'], 'uploads/deliverers/');
-    if($upload['uploadOk']) {
+    if ($upload['uploadOk']) {
         $transporteur = new ModelDeliverer();
         if ($transporteur->add($_POST['nom'], $upload['file_name'])) {
-            header('Location: admin-deliverers.php');
-            ViewTemplate::alert('success', 'Transporteur ajouté avec succès.', 'admin-deliverers.php');
-        } else { ViewTemplate::alert('danger', $upload['errors']); }
+            ViewTemplate::managers('ViewTemplate', 'alert', ['success', 'Action effectuée avec succès.', $_SERVER['HTTP_REFERER']]);
+        } else {
+            ViewTemplate::managers('ViewTemplate', 'alert', ['danger', $upload['errors'], $_SERVER['HTTP_REFERER']]);
+        }
     }
-}   ViewTemplate::managers('ViewDeliverer', 'delivererAdd', null);
+    ViewTemplate::managers('ViewTemplate', 'alert', ['danger', $upload['errors'], $_SERVER['HTTP_REFERER']]);
+}
+ViewTemplate::managers('ViewDeliverer', 'delivererAdd', null);
 
 ViewTemplate::footer();
 ViewTemplate::end(false);

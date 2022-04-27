@@ -10,18 +10,18 @@ ViewTemplate::header();
 if (isset($_GET['id'])) {
     $transporteur = new ModelDeliverer();
     if ($transporteur->display($_GET['id'])) {
-        if (unlink('uploads\/deliverers\/'.$transporteur->display($_GET['id'])['logo'])) {
+        if (unlink('uploads\/deliverers\/' . $transporteur->display($_GET['id'])['logo'])) {
             if ($transporteur->delete($_GET['id'])) {
-                ViewTemplate::alert("success", "Transporteur supprimé avec succès", "admin-deliverers.php");
+                ViewTemplate::managers('ViewTemplate', 'alert', ['success', 'Action effectuée avec succès.', $_SERVER['HTTP_REFERER']]);
             } else {
-                ViewTemplate::alert("danger", "Nous sommes désolé, mais nous avons rencontré une erreur.", "admin-deliverers.php");
+                ViewTemplate::managers('ViewTemplate', 'alert', ['danger', 'Erreur.', $_SERVER['HTTP_REFERER']]);
             }
         }
     } else {
-        ViewTemplate::alert("danger", "Nous sommes désolé, mais nous avons rencontré une erreur.", "admin-deliverers.php");
+        ViewTemplate::managers('ViewTemplate', 'alert', ['danger', 'Erreur.', $_SERVER['HTTP_REFERER']]);
     }
 } else {
-    ViewTemplate::alert("danger", "Nous sommes désolé, mais nous avons rencontré une erreur.", "admin-deliverers.php");
+    ViewTemplate::managers('ViewTemplate', 'alert', ['danger', 'Erreur.', $_SERVER['HTTP_REFERER']]);
 }
 
 ViewTemplate::footer();

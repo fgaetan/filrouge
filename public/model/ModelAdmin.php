@@ -1,5 +1,4 @@
 <?php
-require_once 'connexion.php';
 class ModelAdmin
 {
     private $id;
@@ -7,29 +6,20 @@ class ModelAdmin
     private $prenom;
     private $mail;
     private $pass;
-    private $adresse;
-    private $ville;
-    private $code_post;
-    private $tel;
-    private $token;
+    private $role;
 
-    public function __construct($id = null, $nom = null, $prenom = null, $mail = null, $pass = null, $adresse = null, $ville = null, $code_post = null, $tel = null, $token = null)
+    public function __construct($id = null, $nom = null, $prenom = null, $mail = null, $pass = null, $role = null)
     {
         $this->id = $id;
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->mail = $mail;
         $this->pass = $pass;
-        $this->adresse = $adresse;
-        $this->ville = $ville;
-        $this->code_post = $code_post;
-        $this->tel = $tel;
-        $this->token = $token;
+        $this->role = $role;
     }
-        // /////////////////////////////////////////////////////    RECUPERATION ADMIN
     public function signupAdmin($mail)
     {
-        $idcon = connexion($mail);
+        $idcon = connexion();
         $requete = $idcon->prepare("
       SELECT * FROM employe WHERE mail = :mail
     ");

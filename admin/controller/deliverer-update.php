@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
     if ($transporteur->display($_GET['id'])) {
         ViewTemplate::managers('ViewDeliverer', 'delivererUpdate', $_GET['id']);
     } else {
-        ViewTemplate::alert("danger", "Nous sommes désolé, mais nous avons rencontré une erreur.", "admin-deliverers.php");
+        ViewTemplate::managers('ViewTemplate', 'alert', ['danger', 'Erreur.', $_SERVER['HTTP_REFERER']]);
     }
 } else {
     if (isset($_POST['id']) && $transporteur->display($_POST['id'])) {
@@ -25,13 +25,13 @@ if (isset($_GET['id'])) {
                 $_POST['nom'],
                 $upload['file_name']
             )) {
-                ViewTemplate::alert("success", "Les modifications ont été effectuées, retour à la liste", "admin-deliverers.php");
+                ViewTemplate::managers('ViewTemplate', 'alert', ['success', 'Action effectuée avec succès.', $_SERVER['HTTP_REFERER']]);
             }
         } else {
-            ViewTemplate::alert("danger", "Nous sommes désolé, mais nous avons rencontré une erreur.", "admin-deliverers.php");
+            ViewTemplate::managers('ViewTemplate', 'alert', ['danger', $upload['errors'], $_SERVER['HTTP_REFERER']]);
         }
     } else {
-        ViewTemplate::alert("danger", "Nous sommes désolé, mais nous avons rencontré une erreur.", "admin-deliverers.php");
+        ViewTemplate::managers('ViewTemplate', 'alert', ['danger', 'Erreur.', $_SERVER['HTTP_REFERER']]);
     }
 }
 

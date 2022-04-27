@@ -10,6 +10,7 @@ ViewTemplate::header();
 
 $marques = new ModelBrand();
 $marque = $marques->brand();
+$groupedeLignes = '';
 for ($i = 0; $i < count($marque); $i++) {
     $id = $marque[$i]['id'];
     $nom = $marque[$i]['nom'];
@@ -29,10 +30,9 @@ for ($i = 0; $i < count($marque); $i++) {
     $groupedeLignes .= $ligne;
 }
 if ($marque) {
-    ViewTemplate::managers('ViewBrand', 'brandManager', $groupedeLignes);
-} else {
-    ViewTemplate::alert("danger", "Nous ne pouvons pas afficher votre liste actuellement.", "admin-index.php");
-}
+ViewTemplate::managers('ViewBrand', 'brandManager', $groupedeLignes);
+} ViewTemplate::managers('ViewTemplate', 'alert', ['warning', 'Aucune marque existante, ajoutez-en avant de pouvoir les afficher.', 'brand-add.php']);
+
 
 ViewTemplate::footer();
 ViewTemplate::end(false);

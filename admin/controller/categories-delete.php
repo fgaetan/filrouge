@@ -11,15 +11,15 @@ if (isset($_GET['id'])) {
     $categorie = new ModelCategories();
     if ($categorie->display($_GET['id'])) {
         if ($categorie->delete($_GET['id'])) {
-            ViewTemplate::alert("success", "Catégorie supprimée avec succès", "admin-categories.php");
+            ViewTemplate::managers('ViewTemplate', 'alert', ['success', 'Action effectuée avec succès.', $_SERVER['HTTP_REFERER']]);
         } else {
-            ViewTemplate::alert("danger", "Nous sommes désolé, mais nous avons rencontré une erreur.", "admin-categories.php");
+            ViewTemplate::managers('ViewTemplate', 'alert', ['danger', 'Erreur.', $_SERVER['HTTP_REFERER']]);
         }
     } else {
-        ViewTemplate::alert("danger", "Nous sommes désolé, mais nous avons rencontré une erreur.", "admin-categories.php");
+        ViewTemplate::managers('ViewTemplate', 'alert', ['danger', 'Erreur.', $_SERVER['HTTP_REFERER']]);
     }
 } else {
-    ViewTemplate::alert("danger", "Nous sommes désolé, mais nous avons rencontré une erreur.", "admin-categories.php");
+    ViewTemplate::managers('ViewTemplate', 'alert', ['danger', 'Erreur.', $_SERVER['HTTP_REFERER']]);
 }
 
 ViewTemplate::footer();

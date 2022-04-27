@@ -31,9 +31,9 @@ for ($i = 0; $i < count($transporteur); $i++) {
 }
 if ($transporteur) {
     ViewTemplate::managers('ViewDeliverer', 'delivererManager', $groupedeLignes);
-} else {
-    ViewTemplate::alert("danger", "Nous ne pouvons pas afficher votre liste actuellement.", "admin-index.php");
-}
+} ViewTemplate::managers('ViewTemplate', 'alert', ['warning', 'Aucun transporteur existant, ajoutez-en avant de pouvoir les afficher.', 'deliverer-add.php']);
+
+    
 
 ViewTemplate::footer();
 ViewTemplate::end(false);

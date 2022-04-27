@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../view/ViewTemplate.php';
+require_once '../view/ViewUserTemplate.php';
 require_once '../view/ViewUser.php';
 require_once '../model/ModelUser.php';
 require_once '../model/Utils.php';

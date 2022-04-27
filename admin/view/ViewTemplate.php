@@ -2,14 +2,14 @@
 class ViewTemplate
 {
     // /////////////////////////////////////////////////////    ALERTES
-    public static function alert($type, $message, $lien = null)
+    public static function alert($parametres)
     {
 ?>
-        <div class="mt-5 p-5 container alert  alert-<?= $type ?>" role="alert">
-            <?= $message ?> <br />
+        <div class="mt-5 p-5 container alert  alert-<?= $parametres[0] ?>" role="alert">
+            <?= $parametres[1] ?> <br />
             <?php
-            if ($lien) {  ?>
-                Cliquez <a href="<?= $lien ?>" class="alert-link px-2"> ici </a> pour continuer la navigation.
+            if ($parametres[2]) {  ?>
+                Cliquez <a href="<?= $parametres[2] ?>" class="alert-link px-2"> ici </a> pour continuer la navigation.
             <?php
             }
             ?>

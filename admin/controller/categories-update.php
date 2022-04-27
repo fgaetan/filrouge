@@ -12,7 +12,7 @@ if (isset($_GET['id'])) {
     if ($categorie->display($_GET['id'])) {
         ViewTemplate::managers('ViewCategories', 'categoriesUpdate', $_GET['id']);
     } else {
-        ViewTemplate::alert("danger", "Nous sommes désolé, mais nous avons rencontré une erreur.", "admin-categories.php");
+        ViewTemplate::managers('ViewTemplate', 'alert', ['danger', 'Erreur.', $_SERVER['HTTP_REFERER']]);
     }
 } else {
     if (isset($_POST['id']) && $categorie->display($_POST['id'])) {
@@ -20,12 +20,12 @@ if (isset($_GET['id'])) {
             $_POST['id'],
             $_POST['nom']
         )) {
-            ViewTemplate::alert("success", "Les modifications ont été effectuées, retour à la liste.", "admin-categories.php");
+            ViewTemplate::managers('ViewTemplate', 'alert', ['success', 'Action effectuée avec succès.', $_SERVER['HTTP_REFERER']]);
         } else {
-            ViewTemplate::alert("danger", "Nous sommes désolé, mais nous avons rencontré une erreur.", "admin-categories.php");
+            ViewTemplate::managers('ViewTemplate', 'alert', ['danger', 'Erreur.', $_SERVER['HTTP_REFERER']]);
         }
     } else {
-        ViewTemplate::alert("danger", "Nous sommes désolé, mais nous avons rencontré une erreur.", "admin-categories.php");
+        ViewTemplate::managers('ViewTemplate', 'alert', ['danger', 'Erreur.', $_SERVER['HTTP_REFERER']]);
     }
 }
 

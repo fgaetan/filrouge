@@ -79,21 +79,21 @@ class ViewBrand
     ?>
         <div class="container jumbotron mt-5 p-4">
             <p class="h4 text-center font-weight-bold">INFORMATIONS SUR LA MARQUE</p>
-            <div class="m-auto">
-                <div class="h5 text-center">
-                    ID: #<?= $marque['id'] ?>
-                    <br>
-                    <span class="h4 font-weight-bold"> <?= $marque['nom'] ?></span>
-                    <div class="text-center">
-                        <img class="my-3" src="uploads/brands/<?= $marque['logo'] ?>" alt="logo" height="150px" width="150px">
-                    </div>
+            <div class="text-center m-auto">
+                ID: #<?= $marque['id'] ?>
+                <div class="h5">
+                    <span class="input-group-text bg-light my-2 mx-auto"><?= $marque['nom'] ?></span>
                 </div>
                 <div class="text-center">
-                    <a class="btn btn-warning" href="admin-brands.php">Retour</a>
-                    <a class="btn btn-info" href="brand-update.php?id=<?= $marque['id'] ?>">Modifier</a>
-                    <a class="btn btn-danger" href="brand-delete.php?id=<?= $marque['id'] ?>">Supprimer</a>
+                    <img class="my-3" src="uploads/deliverers/<?= $marque['logo'] ?>" alt="logo" height="150px" width="150px">
                 </div>
             </div>
+            <div class="text-center">
+                <a class="btn btn-warning" href="admin-deliverers.php">Retour</a>
+                <a class="btn btn-info" href="deliverer-update.php?id=<?= $marque['id'] ?>">Modifier</a>
+                <a class="btn btn-danger" href="deliverer-delete.php?id=<?= $marque['id'] ?>">Supprimer</a>
+            </div>
+        </div>
         </div>
 <?php
     }

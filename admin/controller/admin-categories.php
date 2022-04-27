@@ -29,9 +29,8 @@ for ($i = 0; $i < count($categorie); $i++) {
 }
 if ($categorie) {
     ViewTemplate::managers('ViewCategories', 'categoriesManager', $groupedeLignes);
-} else {
-    ViewTemplate::alert("danger", "Nous ne pouvons pas afficher votre liste actuellement.", "admin-index.php");
-}
+} ViewTemplate::managers('ViewTemplate', 'alert', ['warning', 'Aucune catégorie existante, ajoutez-en avant de pouvoir les afficher.', 'categories-add.php']);
+
 
 ViewTemplate::footer();
 ViewTemplate::end(false);

@@ -14,12 +14,12 @@ if (isset($_POST['ajout'])) {
     if ($upload['uploadOk']) {
         $marque = new ModelBrand();
         if ($marque->add($_POST['nom'], $upload['file_name'])) {
-            header('Location: admin-brands.php');
-            ViewTemplate::alert('success', 'Marque ajoutée avec succès.', 'admin-brands.php');
+            ViewTemplate::managers('ViewTemplate', 'alert', ['success', 'Action effectuée avec succès.', $_SERVER['HTTP_REFERER']]);
         } else {
-            ViewTemplate::alert('danger', $upload['errors']);
+            ViewTemplate::managers('ViewTemplate', 'alert', ['danger', $upload['errors'], $_SERVER['HTTP_REFERER']]);
         }
     }
+    ViewTemplate::managers('ViewTemplate', 'alert', ['danger', $upload['errors'], $_SERVER['HTTP_REFERER']]);
 }
 ViewTemplate::managers('ViewBrand', 'brandAdd', null);
 
